@@ -1,0 +1,4 @@
+ VERSION=$(curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)
+            curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/${VERSION}/linux/amd64/sysdig-cli-scanner"
+            chmod +x ./sysdig-cli-scanner
+            SECURE_API_TOKEN=\${SECURE_API_TOKEN} ./sysdig-cli-scanner --apiurl 'https://us2.app.sysdig.com' docker://${APP_NAME}:${BRANCH_NAME}${COMMIT_ID}${BUILD_NUMBER}
